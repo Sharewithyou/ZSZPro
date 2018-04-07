@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3F5C92AC-31C6-4F38-8C29-2256643A5B68}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZSZ.IDAL</RootNamespace>
+    <AssemblyName>ZSZ.IDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IAdminUsersDal.cs" />
+    <Compile Include="IBaseDal.cs" />
+    <Compile Include="IGroupRolesDal.cs" />
+    <Compile Include="IMenuPermissionsDal.cs" />
+    <Compile Include="IOperatePermissionsDal.cs" />
+    <Compile Include="IRolePermissionsDal.cs" />
+    <Compile Include="ISysGroupUsersDal.cs" />
+    <Compile Include="ISysLogDal.cs" />
+    <Compile Include="ISysMenusDal.cs" />
+    <Compile Include="ISysOperationsDal.cs" />
+    <Compile Include="ISysPermissionsDal.cs" />
+    <Compile Include="ISysRolesDal.cs" />
+    <Compile Include="IUserGroupsDal.cs" />
+    <Compile Include="IUserRolesDal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="T4\IDalTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IDalTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZSZ.Model\ZSZ.Model.csproj">
+      <Project>{ca4eb8db-bd51-494e-9e7a-873babcad86a}</Project>
+      <Name>ZSZ.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="T4\BaseTemplate.tt" />
+    <Content Include="T4\IDalTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IDalTemplate.cs</LastGenOutput>
+      <LastOutputs>
+..\IAdminUsersDal.cs
+..\IGroupRolesDal.cs
+..\IMenuPermissionsDal.cs
+..\IOperatePermissionsDal.cs
+..\IRolePermissionsDal.cs
+..\ISysGroupUsersDal.cs
+..\ISysLogDal.cs
+..\ISysMenusDal.cs
+..\ISysOperationsDal.cs
+..\ISysPermissionsDal.cs
+..\ISysRolesDal.cs
+..\IUserGroupsDal.cs
+..\IUserRolesDal.cs
+.\IDalTemplate.cs
+</LastOutputs>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy /Y "$(TargetDir)$(ProjectName).dll" "D:\ZSZPro\ZSZPro\ZSZ.AdminWeb\bin"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

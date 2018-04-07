@@ -1,0 +1,39 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ Assembly Name="$(SolutionDir)\ZSZ.Model\bin\Debug\ZSZ.Model.dll" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="ZSZ.Model" #>
+<#@ include file="T4Toolbox.tt" #>
+<#@ include file="BaseTemplate.tt" #>
+<#
+    string curPath = Path.GetDirectoryName(Host.TemplateFile);
+    string destPath = Path.Combine(curPath, "outPath");
+				string path=@"D:\ZSZPro\ZSZPro\ZSZ.IDAL";
+    if(!Directory.Exists(destPath))
+    {
+        Directory.CreateDirectory(destPath);
+    }
+	List<string> list = new List<string>();
+	foreach (System.Reflection.PropertyInfo p in typeof(ZSZ.Model.ZSZProjContext).GetProperties())
+            {
+                if (p.CanWrite)
+                {
+					var name = p.Name.Replace("T_","I").Replace("s","Dal");
+					list.Add(name);
+                }               
+            }
+    //string[] classNames = new[]{"HelloWorld1", "HelloWorld2", "HelloWorld3"};
+    foreach(string className in list)
+    {
+        BaseTemplate template = new BaseTemplate(className);
+        string fileName = string.Format(@"{0}\{1}.cs", path, className);
+        template.Output.Encoding = Encoding.UTF8;
+        template.RenderToFile(fileName);
+    }
+ #>
+<#@ output extension=".cs" #>
+

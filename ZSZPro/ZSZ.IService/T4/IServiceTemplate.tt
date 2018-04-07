@@ -1,0 +1,39 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ Assembly Name="$(SolutionDir)\ZSZ.DAL\bin\Debug\ZSZ.DAL.dll" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="ZSZ.DAL" #>
+<#@ include file="T4Toolbox.tt" #>
+<#@ include file="BaseTemplate.tt" #>
+<#
+    string curPath = Path.GetDirectoryName(Host.TemplateFile);
+    string destPath = Path.Combine(curPath, "outPath");
+	string path=@"D:\ZSZPro\ZSZPro\ZSZ.IService";
+    if(!Directory.Exists(destPath))
+    {
+        Directory.CreateDirectory(destPath);
+    }
+	List<string> list = new List<string>();
+	foreach (System.Reflection.PropertyInfo p in typeof(ZSZ.DAL.ZSZProjContext).GetProperties())
+            {
+                if (p.CanWrite)
+                {
+					//var name = p.Name.Replace("T_","I");
+					list.Add(p.Name);
+                }               
+            }
+    foreach(string className in list)
+    {
+        string temp = className.Replace("T_","");
+        BaseTemplate template = new BaseTemplate(temp,className);
+        string fileName = string.Format(@"{0}\{1}.cs", path,className.Replace("T_","I")+"Service");
+        template.Output.Encoding = Encoding.UTF8;
+        template.RenderToFile(fileName);
+    }
+ #>
+<#@ output extension=".cs" #>
+

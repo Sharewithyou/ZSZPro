@@ -1,0 +1,36 @@
+﻿<#+
+// <copyright file="BaseTemplate.tt" company="">
+//  Copyright © . All Rights Reserved.
+// </copyright>
+
+public class BaseTemplate : CSharpTemplate
+{
+	private string _className;
+
+	private string _entityName;
+
+    public BaseTemplate(string className,string entityName)
+    {
+        _className = className;
+		_entityName = entityName;
+    }
+	public override string TransformText()
+	{
+		base.TransformText();
+#>
+
+using ZSZ.IDAL;
+using ZSZ.Model.Models;
+
+namespace ZSZ.IDAL
+{
+    public interface I<#=_className #>Dal: IBaseDal<<#=_entityName #>>
+    {
+       
+    }
+}
+<#+
+        return this.GenerationEnvironment.ToString();
+	}
+}
+#>

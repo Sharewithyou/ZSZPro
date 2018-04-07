@@ -1,0 +1,43 @@
+﻿<#+
+// <copyright file="BaseTemplate.tt" company="">
+//  Copyright © . All Rights Reserved.
+// </copyright>
+
+public class BaseTemplate : CSharpTemplate
+{
+	private string _className;
+
+	private string _entityName;
+
+    public BaseTemplate(string className,string entityName)
+    {
+        _className = className;
+		_entityName = entityName;
+    }
+	public override string TransformText()
+	{
+		base.TransformText();
+#>
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
+using ZSZ.Model.Models.Custom;
+using ZSZ.Model.Models;
+
+
+namespace ZSZ.IService
+{
+    public interface I<#=_className #>Service : IBaseService<<#=_entityName#>>
+    {
+       
+    }
+}
+<#+
+        return this.GenerationEnvironment.ToString();
+	}
+}
+#>
