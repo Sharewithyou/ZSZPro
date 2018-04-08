@@ -53,6 +53,7 @@
     <Compile Include="Models\Custom\Enum\ErrorCodeEnum.cs" />
     <Compile Include="Models\Custom\log\LogContent.cs" />
     <Compile Include="Models\Custom\MsgResult.cs" />
+    <Compile Include="Models\Custom\Request\LoginRequest.cs" />
     <Compile Include="Models\Mapping\T_AdminUsersMap.cs" />
     <Compile Include="Models\Mapping\T_GroupRolesMap.cs" />
     <Compile Include="Models\Mapping\T_MenuPermissionsMap.cs" />

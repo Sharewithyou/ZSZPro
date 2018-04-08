@@ -31,7 +31,7 @@ namespace ZSZ.Common
 
         public static MemoryStream CreateVerifyCodeImg(string code)
         {           
-            MemoryStream ms = ImageFactory.GenerateImage(code, 60, 100, 20, 6);
+            MemoryStream ms = ImageFactory.GenerateImage(code, 40, 100, 14, 5);
             return ms;
 
         }
