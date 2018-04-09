@@ -25,7 +25,7 @@ namespace ZSZ.IDAL
         /// <returns></returns>
         public List<T_SysOperations> GetSysOperationListByRoleId(int roleId)
         {
-            string sql = "select * from T_SysOperations where Id in( select OperationId from T_OperatePermissions where PermissionId = (select Id from T_SysPermissions where Type = 1 and Id in(select PermissionId from T_RolePermissions where RoleId = @roleID)))";
+            string sql = "select * from T_SysOperations where Id in( select OperationId from T_OperatePermissions where PermissionId in (select Id from T_SysPermissions where Type = 1 and Id in(select PermissionId from T_RolePermissions where RoleId = @roleID)))";
             return dbContext.Database.SqlQuery<T_SysOperations>(sql, roleId).ToList();
         }
     }

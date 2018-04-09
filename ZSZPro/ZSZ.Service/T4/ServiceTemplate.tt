@@ -30,7 +30,7 @@
     {
         string temp = className.Replace("T_","");
         BaseTemplate template = new BaseTemplate(temp,className);
-        string fileName = string.Format(@"{0}\{1}.cs", path,className.Replace("T_","I")+"Service");
+        string fileName = string.Format(@"{0}\{1}.cs", path,className.Replace("T_","")+"Service");
         template.Output.Encoding = Encoding.UTF8;
         template.RenderToFile(fileName);
     }

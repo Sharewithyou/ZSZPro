@@ -172,6 +172,13 @@ namespace ZSZ.Service
             return result;
         }
 
+        /// <summary>
+        /// 判断是否有权限
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="controller"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
         public bool IsValid(int userId, string controller, string action)
         {
             try

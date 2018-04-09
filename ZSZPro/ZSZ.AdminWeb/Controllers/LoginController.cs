@@ -21,10 +21,11 @@ namespace ZSZ.AdminWeb.Controllers
              
         public ActionResult Index()
         {
-            if (SessionHelper.GetSession("UserName") != null)
+            if (SessionHelper.GetSession("IsRemind") != null)
             {
                 return Redirect("/home/index");
             }
+            ViewData["UserName"] = SessionHelper.GetSession("UserName");
             return View();
         }
 
@@ -55,11 +56,13 @@ namespace ZSZ.AdminWeb.Controllers
             result = LoginService.CheckLogin(request.UserAccount, request.PassWord);
             if (result.IsSuccess)
             {
+                var user = JsonConvert.DeserializeObject<AdminUser>(result.Data);
+                SessionHelper.SetSession("UserName", user.Phone);
+                SessionHelper.SetSession("UserId", user.Id);
+
                 if (request.IsRemind)
                 {
-                    var user = JsonConvert.DeserializeObject<AdminUser>(result.Data);
-                    SessionHelper.SetSession("UserName", user.Phone);
-                    //Session["UserName"] = user.Phone;
+                    SessionHelper.SetSession("IsRemind", true);
                 }            
             }
 

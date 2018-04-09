@@ -354,3 +354,111 @@
     WHERE [Extent1].[Phone] = @p__linq__0
 -->Params:p__linq__0 String = 17512039375
 
+
+========================================================================================================
+ 时间：2018-04-09 17:39:44,843 
+ 级别：INFO 
+ 来源：Log4NetConfig  
+ 信息：初始化应用程序日志
+
+ 时间：2018-04-09 17:40:50,240 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.3268696 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Phone] = @p__linq__0
+-->Params:p__linq__0 String = 17512039375
+
+
+**************************footer**************************
+
+========================================================================================================
+ 时间：2018-04-09 17:46:14,847 
+ 级别：INFO 
+ 来源：Log4NetConfig  
+ 信息：初始化应用程序日志
+
+ 时间：2018-04-09 17:46:46,394 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.0220587 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Phone] = @p__linq__0
+-->Params:p__linq__0 String = 17512039375
+
+
+ 时间：2018-04-09 17:48:45,317 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.0130383 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Phone] = @p__linq__0
+-->Params:p__linq__0 String = 17512039375
+
+
+**************************footer**************************
+
+========================================================================================================
+ 时间：2018-04-09 17:54:31,579 
+ 级别：INFO 
+ 来源：Log4NetConfig  
+ 信息：初始化应用程序日志
+
+**************************footer**************************
+
+========================================================================================================
+ 时间：2018-04-09 17:57:47,039 
+ 级别：INFO 
+ 来源：Log4NetConfig  
+ 信息：初始化应用程序日志
+
+ 时间：2018-04-09 17:59:25,023 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.0441463 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Phone] = @p__linq__0
+-->Params:p__linq__0 String = 17512039375
+
+
+**************************footer**************************
