@@ -10,16 +10,21 @@ using ZSZ.Model.Models.Custom.Request;
 using Newtonsoft.Json;
 using ZSZ.Model.Models;
 using ZSZ.Model.Models.DTO;
+using ZSZ.AdminWeb.App_Start.CustomAttribute;
 
 namespace ZSZ.AdminWeb.Controllers
 {
+    [NoAuthorize]
     public class LoginController : Controller
     {
         public ILoginService LoginService { get; set; }
-        // GET: Login
+             
         public ActionResult Index()
         {
-
+            if (SessionHelper.GetSession("UserName") != null)
+            {
+                return Redirect("/home/index");
+            }
             return View();
         }
 

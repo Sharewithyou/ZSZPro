@@ -162,10 +162,7 @@ $(function () {
 
         bv.disableSubmitButtons(false);
         // Use Ajax to submit form data
-        layer.msg('数据正在提交', {
-            icon: 16
-            , shade: 0.01
-        });
+        layer.load(2);
 
         setTimeout(function () {
             layer.closeAll('loading');
@@ -174,9 +171,7 @@ $(function () {
         $.post($form.attr('action'), $form.serialize(), function (result) {
             // ... Process the result ...
             if (result.IsSuccess) {
-                layer.alert(result.Message, function () {
-                    alert("进入主页");
-                })
+                window.location.href = "/home/index";
             } else {
                 layer.alert(result.Message);
                 refreshVerifyCode();
@@ -193,6 +188,13 @@ $(function () {
         refreshVerifyCode();
     })
 
+    $("#pwdIpt").keypress(function (e) {
+        if (isCapsLock(e)) {
+            layer.tips('已开启大写锁定', '#pwdIpt');
+        }
+
+    })
+
 
 })
 
@@ -201,3 +203,14 @@ $(function () {
 function refreshVerifyCode() {
     $("#verifyCodeImg").attr("src", "/login/GetVerifyCode?" + Math.random())
 }
+
+function isCapsLock(e) {
+    var valueCapsLock = e.keyCode ? e.keyCode : e.which; // 按键     
+    var valueShift = e.shiftKey ? e.shiftKey : ((valueCapsLock == 16) ? true : false); // shift键是否按住    
+    if (((valueCapsLock >= 65 && valueCapsLock <= 90) && !valueShift) // 输入了大写字母，并且shift键没有按住，说明Caps Lock打开  
+        || ((valueCapsLock >= 97 && valueCapsLock <= 122) && valueShift)) {// 输入了小写字母，并且按住 shift键<span style="font-family:Arial, Helvetica, sans-serif;">，说明</span><span style="font-family:SimSun;">Caps Lock</span><span style="font-family:Arial, Helvetica, sans-serif;">打开</span>  
+        return true;
+    } else {
+        return false;
+    }
+}  

@@ -6,7 +6,9 @@
             layer.alert(xhr.status + ":" + xhr.statusText);
         },
         complete: function () {
-            layer.closeAll('loading');
+            setTimeout(function () {
+                layer.closeAll('loading');
+            }, 5000);
             
         }
     });

@@ -10,6 +10,10 @@ namespace ZSZ.AdminWeb.App_Start.Filters
     {
         public static void RegisterFilters(GlobalFilterCollection filters)
         {
+            //权限过滤器
+            filters.Add(new ZszAuthorizeFilter());
+
+            //全局异常过滤器
             filters.Add(new ZszExceptionFilter());
 
             //这里使用了Autofac容器来实例化Filter对象，然后添加到Global Filter中
