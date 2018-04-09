@@ -43,6 +43,7 @@
     <Compile Include="IAdminUsersService.cs" />
     <Compile Include="IBaseService.cs" />
     <Compile Include="IGroupRolesService.cs" />
+    <Compile Include="ILoginService.cs" />
     <Compile Include="IMenuPermissionsService.cs" />
     <Compile Include="IInitDataService.cs" />
     <Compile Include="IOperatePermissionsService.cs" />

@@ -54,6 +54,7 @@
     <Compile Include="Models\Custom\log\LogContent.cs" />
     <Compile Include="Models\Custom\MsgResult.cs" />
     <Compile Include="Models\Custom\Request\LoginRequest.cs" />
+    <Compile Include="Models\DTO\AdminUser.cs" />
     <Compile Include="Models\Mapping\T_AdminUsersMap.cs" />
     <Compile Include="Models\Mapping\T_GroupRolesMap.cs" />
     <Compile Include="Models\Mapping\T_MenuPermissionsMap.cs" />
@@ -92,7 +93,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\DTO\" />
     <Folder Include="Models\T4\outPath\" />
   </ItemGroup>
   <ItemGroup>

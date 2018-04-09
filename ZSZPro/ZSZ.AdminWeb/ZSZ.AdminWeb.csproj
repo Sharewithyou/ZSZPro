@@ -52,6 +52,9 @@
       <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -162,6 +165,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\login.css" />
+    <Content Include="Content\js\Common.js" />
     <Content Include="Content\js\login\login.js" />
     <Content Include="Content\plugins\jquery-3.3.1\jquery-3.3.1.min.js" />
     <Content Include="Content\plugins\bootstrap-3.3.7\css\bootstrap-theme.css" />
@@ -210,6 +215,18 @@
     <Content Include="Content\plugins\bootstrapvalidator\js\language\vi_VN.js" />
     <Content Include="Content\plugins\bootstrapvalidator\js\language\zh_CN.js" />
     <Content Include="Content\plugins\bootstrapvalidator\js\language\zh_TW.js" />
+    <Content Include="Content\plugins\layer-v3.1.1\layer\layer.js" />
+    <Content Include="Content\plugins\layer-v3.1.1\layer\mobile\layer.js" />
+    <Content Include="Content\plugins\layer-v3.1.1\layer\mobile\need\layer.css" />
+    <Content Include="Content\plugins\layer-v3.1.1\layer\theme\default\icon-ext.png" />
+    <Content Include="Content\plugins\layer-v3.1.1\layer\theme\default\icon.png" />
+    <Content Include="Content\plugins\layer-v3.1.1\layer\theme\default\layer.css" />
+    <Content Include="Content\plugins\layer-v3.1.1\layer\theme\default\loading-0.gif" />
+    <Content Include="Content\plugins\layer-v3.1.1\layer\theme\default\loading-1.gif" />
+    <Content Include="Content\plugins\layer-v3.1.1\layer\theme\default\loading-2.gif" />
+    <Content Include="Content\plugins\layer-v3.1.1\test.html" />
+    <Content Include="Content\plugins\layer-v3.1.1\更新日志.txt" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
@@ -223,6 +240,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Config\AutofacDir\AutofacConfig.cs" />
     <Compile Include="Config\AutofacDir\LoggingModule.cs" />
+    <Compile Include="Config\AutoMapDir\SourceProfile.cs" />
     <Compile Include="Config\Log4netDir\Log4NetConfig.cs" />
     <Compile Include="Config\Log4netDir\MyLog4Layout.cs" />
     <Compile Include="Controllers\InitDataController.cs" />
@@ -259,6 +277,11 @@
     <Content Include="Content\plugins\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\plugins\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\plugins\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\plugins\layer-v3.1.1\文档\jquery下载.url" />
+    <Content Include="Content\plugins\layer-v3.1.1\文档\layer官网.url" />
+    <Content Include="Content\plugins\layer-v3.1.1\文档\layer文档.url" />
+    <Content Include="Content\plugins\layer-v3.1.1\文档\layui社区.url" />
+    <Content Include="Content\plugins\layer-v3.1.1\文档\获得layim.url" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -272,7 +295,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\css\" />
     <Folder Include="Content\imgs\" />
     <Folder Include="Views\SysMenuManage\" />
   </ItemGroup>

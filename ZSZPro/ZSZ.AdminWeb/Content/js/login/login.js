@@ -137,6 +137,15 @@ $(function () {
                 validators: {
                     notEmpty: {
                         message: '密码不允许为空'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: '密码长度在6-30之间'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                        message: '密码仅允许数字，字母以及下划线'
                     }
                 }
             }
@@ -151,15 +160,32 @@ $(function () {
         // Get the BootstrapValidator instance
         var bv = $form.data('bootstrapValidator');
 
-        if (bv.validate().isValid()) {
-            // Use Ajax to submit form data
-            $.post($form.attr('action'), $form.serialize(), function (result) {
-                // ... Process the result ...
-            }, 'json');
-        }
-
-       
+        bv.disableSubmitButtons(false);
+        // Use Ajax to submit form data
+        layer.msg('数据正在提交', {
+            icon: 16
+            , shade: 0.01
         });
+
+        setTimeout(function () {
+            layer.closeAll('loading');
+        }, 5000);
+
+        $.post($form.attr('action'), $form.serialize(), function (result) {
+            // ... Process the result ...
+            if (result.IsSuccess) {
+                layer.alert(result.Message, function () {
+                    alert("进入主页");
+                })
+            } else {
+                layer.alert(result.Message);
+                refreshVerifyCode();
+                //bv.disableSubmitButtons(false);
+            }
+        }, 'json');
+
+
+    });
 
     //验证结束
 
