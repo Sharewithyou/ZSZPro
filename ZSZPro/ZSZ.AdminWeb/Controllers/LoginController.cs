@@ -25,7 +25,7 @@ namespace ZSZ.AdminWeb.Controllers
         /// <returns></returns>  
         public ActionResult Index()
         {
-            if (SessionHelper.GetSession("IsRemind") != null)
+            if (SessionHelper.GetSession("UserId") != null)
             {
                 return Redirect("/home/index");
             }
@@ -75,9 +75,9 @@ namespace ZSZ.AdminWeb.Controllers
 
                 if (request.IsRemind)
                 {
-                    SessionHelper.SetSession("IsRemind", true);
-                    HttpCookie cookie = new HttpCookie("JSESSIONID", Session.SessionID);
-                    cookie.Path = "/";
+                    //SessionHelper.SetSession("IsRemind", true);
+                    HttpCookie cookie = new HttpCookie("ASP.NET_SessionId", Session.SessionID);
+                    cookie.Path = "/";                   
                     cookie.Expires = DateTime.Now.AddDays(7);
                     Response.AppendCookie(cookie);
                 }            

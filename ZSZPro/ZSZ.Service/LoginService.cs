@@ -36,7 +36,7 @@ namespace ZSZ.Service
                 {
                     string pwdHush = EncryptHelper.GetMd5(pwd.Trim() + model.Salt);
                     if (string.Equals(pwdHush, model.PwdHush))
-                    {                       
+                    {
                         result.IsSuccess = true;
                         result.Message = "登陆成功";
                         result.Data = JsonConvert.SerializeObject(user);
@@ -56,11 +56,11 @@ namespace ZSZ.Service
             catch (Exception ex)
             {
                 result.IsSuccess = false;
-                result.Message = "系统异常：" + ex.Message;  
+                result.Message = "系统异常：" + ex.Message;
             }
 
             return result;
-            
+
         }
 
         /// <summary>
@@ -75,26 +75,39 @@ namespace ZSZ.Service
             MsgResult result = new MsgResult();
             try
             {
+                controller = controller.ToUpper();
+                action = action.ToUpper();
                 var model = AdminUsersDal.GetModel(x => x.Id == userId).FirstOrDefault();
                 if (model != null)
                 {
-                    var cache = CacheHelper.GetCache("SysOp" + model.Id);
+
                     List<T_SysOperations> list = new List<T_SysOperations>();
-                    if (cache == null)
+                    //foreach (var role in model.T_UserRoles)
+                    //{
+                    //    var tempList = SysOperationsDal.GetSysOperationListByRoleId(role.RoleId);
+                    //    list.AddRange(tempList);
+                    //}
+
+                    var cache = CacheHelper.GetCache("SysOp" + model.Id) as List<T_SysOperations>;
+                    if (cache==null||cache.Count <= 0)
                     {
                         foreach (var role in model.T_UserRoles)
                         {
-                            var tempList = SysOperationsDal.GetSysOperationListByRoleId(role.Id);
-                            list.AddRange(tempList);
+                            var tempList = SysOperationsDal.GetSysOperationListByRoleId(role.RoleId);
+                            if (tempList.Count > 0)
+                            {
+                                list.AddRange(tempList);
+                            }
+
                         }
                         CacheHelper.SetCache("SysOp" + model.Id, list);
                     }
                     else
                     {
-                        list = (List<T_SysOperations>)cache;
+                        list = cache;
                     }
 
-                    if (list.Any(x => x.ContronllerName == controller & x.ActionName == action))
+                    if (list.Any(x => x.ContronllerName.ToUpper() == controller & x.ActionName.ToUpper() == action))
                     {
                         result.IsSuccess = true;
                     }
@@ -107,7 +120,7 @@ namespace ZSZ.Service
                 else
                 {
                     result.IsSuccess = false;
-                    result.Message = "当前用户不存在";                   
+                    result.Message = "当前用户不存在";
                 }
             }
             catch (Exception ex)

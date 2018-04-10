@@ -19,13 +19,14 @@ using ZSZ.IDAL;
 using ZSZ.IService;
 using ZSZ.Model.Models;
 using ZSZ.Model.Models.Custom;
+using ZSZ.Model.Models.Custom.ztree;
 using ZSZ.Model.Models.DTO;
 
 namespace ZSZ.Service
 {
     public class SysMenusService : BaseService<T_SysMenus>, ISysMenusService
     {
-        public ILog Logger { get; set; }
+        //public ILog Logger { get; set; }
         public ISysMenusDal SysMenusDal { get; set; }
 
 
@@ -56,9 +57,39 @@ namespace ZSZ.Service
             {
                 result.IsSuccess = false;
                 result.Message = ex.Message;
-                Logger.Error(ex.Message);
+                //Logger.Error(ex.Message);
             }
 
+            return result;
+        }
+
+        /// <summary>
+        /// 获取所有的菜单树节点
+        /// </summary>
+        /// <returns></returns>
+        public MsgResult GetZtreeNodeByUserId()
+        {
+            MsgResult result = new MsgResult();
+            try
+            {
+                List<ZtreeNode> nodeList = new List<ZtreeNode>();
+                List<T_SysMenus> sysMenus = SysMenusDal.GetModel(x => x.Id >= 0).ToList();
+                for (int i = 0; i < sysMenus.Count; i++)
+                {
+                    ZtreeNode node = new ZtreeNode();
+                    node.Id = sysMenus[i].Id;
+                    node.Name = sysMenus[i].MenuName;
+                    node.Pid = sysMenus[i].ParentId;
+                    nodeList.Add(node);
+                }
+                result.IsSuccess = true;
+                result.Data = JsonConvert.SerializeObject(nodeList);
+            }
+            catch (Exception ex)
+            {
+                result.IsSuccess = false;
+                result.Message = ex.Message;
+            }
             return result;
         }
     }

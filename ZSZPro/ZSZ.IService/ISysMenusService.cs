@@ -22,7 +22,13 @@ namespace ZSZ.IService
         /// 根据用户ID获取菜单
         /// </summary>
         /// <param name="userId"></param>
-        /// <returns></returns>
+        /// <returns>List(SysMenu)</returns>
         MsgResult GetSysMenusByUserId(int userId);
+
+        /// <summary>
+        /// 获取所有的菜单树节点
+        /// </summary>
+        /// <returns></returns>
+        MsgResult GetZtreeNodeByUserId();
     }
 }

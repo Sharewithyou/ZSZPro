@@ -11,12 +11,15 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Data.SqlClient;
+using System;
 
 namespace ZSZ.IDAL
 {
     public class SysMenusDal : BaseDal<T_SysMenus>, ISysMenusDal
     {
         private DbContext dbContext = DbContextFactory.Create();
+
+       
 
         /// <summary>
         /// 通过用户Id获取用户菜单

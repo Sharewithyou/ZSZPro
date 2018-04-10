@@ -381,6 +381,8 @@
     <Content Include="Views\Shared\_LayoutHomePage.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\SysMenuManage\Index.cshtml" />
+    <Content Include="Views\SysMenuManage\AddMenuPage.cshtml" />
+    <Content Include="Views\SysMenuManage\UpdateMenuPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

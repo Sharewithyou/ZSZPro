@@ -8,7 +8,7 @@
           
         },
         complete: function () {
-            //layer.closeAll('loading');
+            layer.closeAll('loading');
         }
     });
 })

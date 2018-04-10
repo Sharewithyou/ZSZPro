@@ -83,7 +83,7 @@
     <script>
         $(function () {
 
-            //initTree();
+            initTree();
 
             //增加节点
             $("#btnAddMenu").click(function () {
@@ -120,19 +120,19 @@
                 }
             };
 
-            AjaxUtil.request({
-                url: "/SysMenu/GetMenuTreeNodeData",
-                type: 'post',
-                success: function (rep) {
-                    var nodes = JSON.parse(rep.Data);
-                    var ztree = $.fn.zTree.init($("#menuTree"), setting, nodes);
-                    ztree.expandAll(true);
+            layer.load(2);
 
-                },
-                fail: function (rep) {
-                    alert(rep.Message);
-                }
-            });
+            $.post("/SysMenuManage/GetMenuTreeNode",
+                null,
+                function(result) {
+                    if (result.IsSuccess) {
+                        var nodes = JSON.parse(result.Data);
+                        var ztree = $.fn.zTree.init($("#menuTree"), setting, nodes);
+                        ztree.expandAll(true);
+                    } else {
+                        layer.alert(result.Message);
+                    }
+                });
 
 
         }

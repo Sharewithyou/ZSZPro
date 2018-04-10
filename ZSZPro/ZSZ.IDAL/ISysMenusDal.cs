@@ -18,5 +18,7 @@ namespace ZSZ.IDAL
         /// <param name="userId"></param>
         /// <returns></returns>
         List<T_SysMenus> GetSysMenusByUserId(int userId);
+
+      
     }
 }
