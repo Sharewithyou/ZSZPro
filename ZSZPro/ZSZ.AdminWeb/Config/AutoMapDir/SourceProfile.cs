@@ -15,6 +15,10 @@ namespace ZSZ.AdminWeb.Config.AutoMapDir
             base.CreateMap<T_AdminUsers, AdminUser>();
 
             base.CreateMap<AdminUser, T_AdminUsers>();
+
+            base.CreateMap<T_SysMenus, SysMenu>();
+
+            base.CreateMap<SysMenu, T_SysMenus>();
         }
     }
 }

@@ -8,6 +8,6 @@ namespace ZSZ.Model.Models.Custom.Enum
 {
     public enum ErrorCodeEnum
     {
-
+        没有权限 = 10001
     }
 }

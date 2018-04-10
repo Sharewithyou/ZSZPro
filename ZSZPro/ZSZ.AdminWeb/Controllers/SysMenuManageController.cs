@@ -17,5 +17,15 @@ namespace ZSZ.AdminWeb.Controllers
         {
             return View();
         }
+
+        public ActionResult AddMenuPage()
+        {
+            return View();
+        }
+
+        public ActionResult UpdateMenuPage()
+        {
+            return View(); 
+        }
     }
 }

@@ -12,13 +12,15 @@ using ZSZ.Model.Models.Custom;
 
 namespace ZSZ.AdminWeb.Controllers
 {
+    [NoAuthorize]
+    [PermissionDes(Name = "数据初始化",IsNotShow =true)]
     public class InitDataController : Controller
     {
         public IInitDataService InitDataService { get; set; }
 
         public ISysMenusService SysMenusService { get; set; }
 
-        // GET: InitData
+        [PermissionDes(Name = "初始化管理员数据", IsNotShow = true)]
         public ActionResult Index()
         {
             #region 初始化菜单

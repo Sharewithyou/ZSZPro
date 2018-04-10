@@ -150,7 +150,7 @@ namespace ZSZ.Service
                         addMenuOperate.Add(menuPermission);
                     }
 
-                    permission.T_MenuPermissions = addMenuOperate;
+                    permissionNew.T_MenuPermissions = addMenuOperate;
                     BaseDal.SaveChanges();
 
                     scope.Complete();
@@ -172,55 +172,6 @@ namespace ZSZ.Service
             return result;
         }
 
-        /// <summary>
-        /// 判断是否有权限
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="controller"></param>
-        /// <param name="action"></param>
-        /// <returns></returns>
-        public bool IsValid(int userId, string controller, string action)
-        {
-            try
-            {
-                var model = BaseDal.GetModel(x => x.Id == userId).FirstOrDefault();
-                if (model != null)
-                {
-                    var cache = CacheHelper.GetCache("SysOp" + model.Id);
-                    List<T_SysOperations> list = new List<T_SysOperations>();
-                    if (cache == null)
-                    {
-                        foreach (var role in model.T_UserRoles)
-                        {
-                            var tempList = SysOperationsDal.GetSysOperationListByRoleId(role.Id);
-                            list.AddRange(tempList);
-                        }
-                        CacheHelper.SetCache("SysOp" + model.Id, list);
-                    }
-                    else
-                    {
-                        list = (List<T_SysOperations>)cache;
-                    }
-
-                    if (list.Any(x => x.ContronllerName == controller & x.ActionName == action))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                //log.Fatal(new LogContent("查询用户角色权限失败：", ex.Message));
-                return false;
-            }
-        }
+       
     }
 }

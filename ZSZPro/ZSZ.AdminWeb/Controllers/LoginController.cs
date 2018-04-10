@@ -18,7 +18,11 @@ namespace ZSZ.AdminWeb.Controllers
     public class LoginController : Controller
     {
         public ILoginService LoginService { get; set; }
-             
+
+        /// <summary>
+        /// 登陆页
+        /// </summary>
+        /// <returns></returns>  
         public ActionResult Index()
         {
             if (SessionHelper.GetSession("IsRemind") != null)
@@ -29,6 +33,10 @@ namespace ZSZ.AdminWeb.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 获取验证码
+        /// </summary>
+        /// <returns></returns>
         public ActionResult GetVerifyCode()
         {
             string code = CaptchaHelper.CreateVerifyCode(4);
@@ -37,6 +45,11 @@ namespace ZSZ.AdminWeb.Controllers
             return File(stream, "image/jpeg");
         }
 
+        /// <summary>
+        /// 提交登陆
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public ActionResult SubmitLogin(LoginRequest request)
         {
              MsgResult result = new MsgResult();
@@ -68,6 +81,16 @@ namespace ZSZ.AdminWeb.Controllers
 
             return Json(result);
 
+        }
+
+        /// <summary>
+        /// 退出登陆
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult LoginOut()
+        {
+            SessionHelper.ClearSession();
+            return Redirect("/login/index");
         }
     }
 }
