@@ -23,6 +23,20 @@ namespace ZSZ.Common
         {
             return HttpContext.Current.Session[name];
         }
+
+        /// <summary>
+        /// 是否拥有某个Session对象
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static bool HasSession(string name)
+        {
+            if (HttpContext.Current.Session[name] == null)
+            {
+                return false;
+            }
+            return true;
+        }
         /// <summary>  
         /// 设置Session  
         /// </summary>  

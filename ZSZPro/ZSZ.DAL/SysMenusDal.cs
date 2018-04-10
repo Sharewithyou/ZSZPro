@@ -7,11 +7,27 @@
 using ZSZ.IDAL;
 using ZSZ.Model.Models;
 using ZSZ.DAL;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Data.SqlClient;
 
 namespace ZSZ.IDAL
 {
-    public class SysMenusDal : BaseDal<T_SysMenus> , ISysMenusDal
+    public class SysMenusDal : BaseDal<T_SysMenus>, ISysMenusDal
     {
-       
+        private DbContext dbContext = DbContextFactory.Create();
+
+        /// <summary>
+        /// 通过用户Id获取用户菜单
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public List<T_SysMenus> GetSysMenusByUserId(int userId)
+        {
+            string sql = "  select distinct * from T_SysMenus where Id in ( select MenuId from T_MenuPermissions where PermissionId in( select Id from T_SysPermissions where Type = 2 and Id in (select PermissionId from T_RolePermissions where RoleId in (select RoleId from T_UserRoles where UserId=@UserId))))";
+            var pars = new SqlParameter("@UserId", userId);
+            return dbContext.Database.SqlQuery<T_SysMenus>(sql,pars).ToList();
+        }
     }
 }

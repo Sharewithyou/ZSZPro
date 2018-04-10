@@ -20,8 +20,15 @@ namespace ZSZ.AdminWeb.Config.AutofacDir
             //注册控制器 自动属性注入
             builder.RegisterControllers(typeof(MvcApplication).Assembly).PropertiesAutowired();
 
+            //builder.RegisterFilterProvider();
+
+            //为 ActionFilter 注入
+            //builder.RegisterAssemblyTypes(typeof(MvcApplication).Assembly)
+            //.Where(type => typeof(ActionFilterAttribute).IsAssignableFrom(type) && !type.IsAbstract)
+            //.PropertiesAutowired();
+
             //builder.RegisterType(typeof(BtnRoleHelper)).PropertiesAutowired();
-           
+
             //注册业务逻辑与数据访问
             Assembly[] assemblies = new Assembly[] { Assembly.Load("ZSZ.Service"), Assembly.Load("ZSZ.DAL") };
 

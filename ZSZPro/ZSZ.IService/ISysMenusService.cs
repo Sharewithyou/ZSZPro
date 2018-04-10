@@ -18,6 +18,11 @@ namespace ZSZ.IService
 {
     public interface ISysMenusService : IBaseService<T_SysMenus>
     {
-       
+        /// <summary>
+        /// 根据用户ID获取菜单
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        MsgResult GetSysMenusByUserId(int userId);
     }
 }

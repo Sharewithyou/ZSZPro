@@ -16,13 +16,6 @@ namespace ZSZ.IService
        /// <param name="list">操作列表</param>
        /// <returns></returns>
         MsgResult InitData(List<T_SysOperations> list);
-
-        /// <summary>
-        /// 测试
-        /// </summary>
-        /// <param name="controller"></param>
-        /// <param name="action"></param>
-        /// <returns></returns>
-        bool IsValid(int userId,string controller,string action);
+     
     }
 }

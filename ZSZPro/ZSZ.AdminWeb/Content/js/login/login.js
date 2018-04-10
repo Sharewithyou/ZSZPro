@@ -166,7 +166,7 @@ $(function () {
 
         setTimeout(function () {
             layer.closeAll('loading');
-        }, 5000);
+        }, 10000);
 
         $.post($form.attr('action'), $form.serialize(), function (result) {
             // ... Process the result ...
