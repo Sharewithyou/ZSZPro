@@ -14,7 +14,7 @@ namespace ZSZ.AdminWeb.Controllers
 {
     public class InitDataController : Controller
     {
-        public IInitDataService InitDataService { get; set; }
+        public IInitDataService InitDataService {  get; set; }
 
         public ISysMenusService SysMenusService { get; set; }
 
