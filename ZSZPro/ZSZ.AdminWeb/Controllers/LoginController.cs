@@ -76,6 +76,10 @@ namespace ZSZ.AdminWeb.Controllers
                 if (request.IsRemind)
                 {
                     SessionHelper.SetSession("IsRemind", true);
+                    HttpCookie cookie = new HttpCookie("JSESSIONID", Session.SessionID);
+                    cookie.Path = "/";
+                    cookie.Expires = DateTime.Now.AddDays(7);
+                    Response.AppendCookie(cookie);
                 }            
             }
 

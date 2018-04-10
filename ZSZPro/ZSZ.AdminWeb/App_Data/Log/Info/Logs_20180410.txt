@@ -2658,3 +2658,62 @@ Error Number:137,State:2,Class:15
 -->ScalarExecuted.Command:  select distinct * from T_SysMenus where Id in ( select MenuId from T_MenuPermissions where PermissionId in( select Id from T_SysPermissions where Type = 2 and Id in (select PermissionId from T_RolePermissions where RoleId in (select RoleId from T_UserRoles where UserId=@UserId))))
 -->Params:@UserId Int32 = 16
 
+
+========================================================================================================
+ 时间：2018-04-10 17:46:16,798 
+ 级别：INFO 
+ 来源：Log4NetConfig  
+ 信息：初始化应用程序日志
+
+**************************footer**************************
+
+========================================================================================================
+ 时间：2018-04-10 17:56:51,609 
+ 级别：INFO 
+ 来源：Log4NetConfig  
+ 信息：初始化应用程序日志
+
+ 时间：2018-04-10 17:59:42,007 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.5003307 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Phone] = @p__linq__0
+-->Params:p__linq__0 String = 17512039375
+
+
+ 时间：2018-04-10 17:59:43,096 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.3007709 秒
+-->ScalarExecuted.Command:  select distinct * from T_SysMenus where Id in ( select MenuId from T_MenuPermissions where PermissionId in( select Id from T_SysPermissions where Type = 2 and Id in (select PermissionId from T_RolePermissions where RoleId in (select RoleId from T_UserRoles where UserId=@UserId))))
+-->Params:@UserId Int32 = 16
+
+
+ 时间：2018-04-10 18:00:44,387 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.0631654 秒
+-->ScalarExecuted.Command:  select distinct * from T_SysMenus where Id in ( select MenuId from T_MenuPermissions where PermissionId in( select Id from T_SysPermissions where Type = 2 and Id in (select PermissionId from T_RolePermissions where RoleId in (select RoleId from T_UserRoles where UserId=@UserId))))
+-->Params:@UserId Int32 = 16
+
+
+**************************footer**************************
+
+========================================================================================================
+ 时间：2018-04-10 18:04:34,797 
+ 级别：INFO 
+ 来源：Log4NetConfig  
+ 信息：初始化应用程序日志
