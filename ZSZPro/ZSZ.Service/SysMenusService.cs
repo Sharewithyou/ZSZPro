@@ -73,7 +73,7 @@ namespace ZSZ.Service
             try
             {
                 List<ZtreeNode> nodeList = new List<ZtreeNode>();
-                List<T_SysMenus> sysMenus = SysMenusDal.GetModel(x => x.Id >= 0).ToList();
+                List<T_SysMenus> sysMenus = SysMenusDal.GetModel(x => x.Id >= 0).ToList();               
                 for (int i = 0; i < sysMenus.Count; i++)
                 {
                     ZtreeNode node = new ZtreeNode();
@@ -91,6 +91,45 @@ namespace ZSZ.Service
                 result.Message = ex.Message;
             }
             return result;
+        }
+
+        /// <summary>
+        /// 获取点击菜单节点详情数据
+        /// </summary>
+        /// <returns></returns>
+        public MsgResult GetZtreeNodeDetailById(int id)
+        {
+            MsgResult result = new MsgResult();
+            try
+            {
+                var node = SysMenusDal.GetModel(x => x.Id == id).FirstOrDefault();
+                List<SysMenu> list = new List<SysMenu>();
+                if (node != null)
+                {
+                    if (node.IsLeaf)
+                    {
+                        var parent = SysMenusDal.GetModel(x => x.Id == node.ParentId).FirstOrDefault();
+                        list = SysMenusDal.GetModel(x => x.ParentId == node.ParentId).ToList().Select(x => Mapper.Map<SysMenu>(x)).ToList();
+                        list.ForEach(x => x.ParentName = parent.MenuName);
+                    }
+                    else
+                    {                       
+                        SysMenu menu = Mapper.Map<SysMenu>(node);
+                        list.Add(menu);
+                        list.ForEach(x => x.ParentName = "");
+                    }
+                    result.IsSuccess = true;
+                    result.Data = JsonConvert.SerializeObject(list);
+                }
+            }
+            catch (Exception ex)
+            {
+                result.IsSuccess = false;
+                result.Message = ex.Message;            
+            }
+
+            return result;
+            
         }
     }
 }

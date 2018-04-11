@@ -16,5 +16,10 @@ namespace ZSZ.AdminWeb.App_Start.CustomAttribute
         /// 是否在授权时展示
         /// </summary>
         public bool IsNotShow { get; set; }
+
+        /// <summary>
+        /// 关联操作名称
+        /// </summary>
+        public string BelongOperate { get; set; }
     }
 }

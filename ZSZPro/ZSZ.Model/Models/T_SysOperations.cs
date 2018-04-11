@@ -16,6 +16,7 @@ namespace ZSZ.Model.Models
         public string OperateName { get; set; }
         public string ContronllerName { get; set; }
         public string ActionName { get; set; }
+        public string BelongOperate { get; set; }
         public bool IsNotShow { get; set; }
         public bool IsDeleted { get; set; }
         public int CreateUser { get; set; }

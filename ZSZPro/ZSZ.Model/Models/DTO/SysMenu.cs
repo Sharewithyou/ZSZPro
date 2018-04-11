@@ -19,5 +19,10 @@ namespace ZSZ.Model.Models.DTO
         public bool IsDeleted { get; set; }
         public int CreateUser { get; set; }
         public System.DateTime CreateTime { get; set; }
+
+        /// <summary>
+        /// 父节点名称
+        /// </summary>
+        public string ParentName { get; set; }
     }
 }

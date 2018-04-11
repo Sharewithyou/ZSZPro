@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using ZSZ.AdminWeb.App_Start.CustomAttribute;
 using ZSZ.IService;
+using ZSZ.Model.Models.DTO;
 
 namespace ZSZ.AdminWeb.Controllers
 {
@@ -21,22 +22,50 @@ namespace ZSZ.AdminWeb.Controllers
             return View();
         }
 
-        [NoAuthorize]
-        [PermissionDes(Name = "获取菜单树数据",IsNotShow = true)]
-        public ActionResult GetMenuTreeNode()
+
+        [PermissionDes(Name = "获取菜单树数据", BelongOperate = "浏览", IsNotShow = true)]
+        public ActionResult GetMenuTreeNodeList()
         {
             var result = SysMenusService.GetZtreeNodeByUserId();
             return Json(result);
         }
 
+
+        [PermissionDes(Name = "获取菜单节点详情数据", BelongOperate = "浏览", IsNotShow = true)]
+        public ActionResult GetMenuTreeNode(int id)
+        {
+            var result = SysMenusService.GetZtreeNodeDetailById(id);
+            return Json(result);
+        }
+
+        [PermissionDes(Name = "增加菜单页面", BelongOperate = "增加菜单", IsNotShow = true)]
         public ActionResult AddMenuPage()
         {
             return View();
         }
 
+        [PermissionDes(Name = "跟新菜单页面", BelongOperate = "跟新菜单", IsNotShow = true)]
         public ActionResult UpdateMenuPage()
         {
-            return View(); 
+            return View();
+        }
+
+        [PermissionDes(Name = "增加菜单")]
+        public ActionResult AddMenuNode(SysMenu sysMenu)
+        {
+            return null;
+        }
+
+        [PermissionDes(Name = "跟新菜单")]
+        public ActionResult UpdateMenuNode(SysMenu sysMenu)
+        {
+            return null;
+        }
+
+        [PermissionDes(Name = "删除菜单")]
+        public ActionResult DeleteMenuNode(string guid)
+        {
+            return null;
         }
     }
 }

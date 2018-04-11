@@ -31,6 +31,10 @@ namespace ZSZ.Model.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(255);
 
+            this.Property(t => t.BelongOperate)             
+                .HasMaxLength(255);
+            
+
             // Table & Column Mappings
             this.ToTable("T_SysOperations");
             this.Property(t => t.Id).HasColumnName("Id");
@@ -39,6 +43,7 @@ namespace ZSZ.Model.Models.Mapping
             this.Property(t => t.OperateName).HasColumnName("OperateName");
             this.Property(t => t.ContronllerName).HasColumnName("ContronllerName");
             this.Property(t => t.ActionName).HasColumnName("ActionName");
+            this.Property(t => t.BelongOperate).HasColumnName("BelongOperate");
             this.Property(t => t.IsNotShow).HasColumnName("IsNotShow");
             this.Property(t => t.IsDeleted).HasColumnName("IsDeleted");
             this.Property(t => t.CreateUser).HasColumnName("CreateUser");

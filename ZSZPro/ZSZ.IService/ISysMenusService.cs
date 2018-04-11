@@ -30,5 +30,11 @@ namespace ZSZ.IService
         /// </summary>
         /// <returns></returns>
         MsgResult GetZtreeNodeByUserId();
+
+        /// <summary>
+        /// 获取点击菜单节点详情数据
+        /// </summary>
+        /// <returns></returns>
+        MsgResult GetZtreeNodeDetailById(int id);
     }
 }

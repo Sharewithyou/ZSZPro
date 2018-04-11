@@ -37,9 +37,9 @@
                 </div>
                 <div class="panel-body" style="min-height:600px;">
                     <div>
-                        <button type="button" class="btn btn-warning" id="btnAddMenu">增加子节点</button>
-                        <button type="button" class="btn btn-primary">修改</button>
-                        <button type="button" class="btn btn-danger">删除</button>
+                        @*<button type="button" class="btn btn-warning" id="btnAddMenu">增加子节点</button>*@
+                        <button type="button" class="btn btn-primary" id="btnAddSiblins">增加同级节点</button>
+                        <button type="button" class="btn btn-danger" id="btnAddChild">增加子级节点</button>
                     </div>
                     <table class="table">
                         <thead>
@@ -70,7 +70,7 @@
 {
     <script src="~/Content/plugins/zTree_v3/js/jquery.ztree.core.min.js"></script>
     <script src="~/Content/plugins/zTree_v3/js/jquery.ztree.excheck.min.js"></script>
-    <script src="~/Content/plugins/lib/jquery.tmpl.js"></script>  
+    <script src="~/Content/plugins/lib/jquery.tmpl.js"></script>
     <script type="text/html" id="tableTr">
         <tr>
             <td>${ParentName}</td>
@@ -86,7 +86,7 @@
             initTree();
 
             //增加节点
-            $("#btnAddMenu").click(function () {
+            $("#btnAddChild").click(function () {
                 //1,根节点的Pid默认为NULL
                 var treeObj = $.fn.zTree.getZTreeObj("menuTree");
                 var nodes = treeObj.getSelectedNodes();
@@ -94,7 +94,7 @@
                     layer.alert("请先选中节点！");
                     return;
                 } else {
-                    layer_show("增加菜单节点", "/SysMenu/AddMenuPage?Id=" + nodes[0].id, 900, 450);
+                    layer_show("增加菜单节点", "/SysMenuManage/AddMenuPage?Id=" + nodes[0].id, 900, 450);
                 }
             });
 
@@ -122,9 +122,9 @@
 
             layer.load(2);
 
-            $.post("/SysMenuManage/GetMenuTreeNode",
+            $.post("/SysMenuManage/GetMenuTreeNodeList",
                 null,
-                function(result) {
+                function (result) {
                     if (result.IsSuccess) {
                         var nodes = JSON.parse(result.Data);
                         var ztree = $.fn.zTree.init($("#menuTree"), setting, nodes);
@@ -139,22 +139,24 @@
 
         //菜单单击事件
         function treeOnClick(e, treeId, treeNode) {
-            var id = treeNode.id;
+            var nodeId = treeNode.id;
 
             $("#nodeTb").empty();
+            layer.load(2);
 
-            AjaxUtil.request({
-                url: '/SysMenu/GetMenuTreeNodeById',
-                type: 'post',
-                data: { id: id },
-                success: function (rep) {
-                    var model = JSON.parse(rep.Data);
+            $.post("/SysMenuManage/GetMenuTreeNode", { id: nodeId }, function (result) {
+                if (result.IsSuccess) {
+                    var model = JSON.parse(result.Data);
                     $.template("Template", $("#tableTr").html());
-                    $.tmpl("Template", model)
-                        .appendTo("#nodeTb");
-
+                    $.tmpl("Template", model).appendTo("#nodeTb");
+                } else {
+                    layer.alert(result.Message);
                 }
-            });
+            })
+
+        
+
+
         }
 
         ///修改节点

@@ -30,26 +30,31 @@ namespace ZSZ.AdminWeb.Controllers
             tempResult = SysMenusService.Clear(typeof(T_SysMenus).Name);
 
             var nodes = MvcSiteMapProvider.SiteMaps.Current.FindSiteMapNodeFromKey("root").ChildNodes;
+            int sortNum = 0;
             foreach (var node in nodes)
-            {
+            {              
                 if (!node.Clickable)
                 {
+                    sortNum += 20;
                     T_SysMenus menu = new T_SysMenus();
                     menu.Guid = Guid.NewGuid().ToString("N");
                     menu.MenuName = node.Title;
                     menu.MenuUrl = "";
                     menu.ParentId = 0;
+                    menu.SortNum = sortNum;
                     menu.CreateTime = DateTime.Now;
                     menu.CreateUser = 1;
                     menu.IconFont = (string)node.Attributes["iconfont"];
                     var result = SysMenusService.Add(menu);
                     if (result.IsSuccess)
                     {
+                        int sort = 0;
                         T_SysMenus addMenu = JsonConvert.DeserializeObject<T_SysMenus>(result.Data);
                         var childNodes = node.ChildNodes;
                         List<T_SysMenus> menuList = new List<T_SysMenus>();
                         foreach (var childNode in childNodes)
                         {
+                            sort += 20;
                             T_SysMenus menuNew = new T_SysMenus();
                             menuNew.Guid = Guid.NewGuid().ToString("N");
                             menuNew.MenuName = childNode.Title;
@@ -57,6 +62,7 @@ namespace ZSZ.AdminWeb.Controllers
                             menuNew.ParentId = addMenu.Id;
                             menuNew.IsLeaf = true;
                             menuNew.CreateTime = DateTime.Now;
+                            menuNew.SortNum = sort;
                             menuNew.CreateUser = 1;
                             menuList.Add(menuNew);
                         }
@@ -93,13 +99,16 @@ namespace ZSZ.AdminWeb.Controllers
 
                 foreach (var action in actions)
                 {
-                    var attr = ((PermissionDesAttribute)action.GetCustomAttributes(typeof(PermissionDesAttribute)).FirstOrDefault()).Name;
-                    var isNotShow = ((PermissionDesAttribute)action.GetCustomAttributes(typeof(PermissionDesAttribute)).FirstOrDefault()).IsNotShow;
+                    var attribute = (PermissionDesAttribute)action.GetCustomAttributes(typeof(PermissionDesAttribute)).FirstOrDefault();
+                    var operate = attribute.Name;
+                    var isNotShow = attribute.IsNotShow;
+                    var pName = attribute.BelongOperate ?? "";
                     T_SysOperations model = new T_SysOperations();
                     model.ContronllerName = controller.Name.Replace("Controller", "");
                     model.ActionName = action.Name;
                     model.TypeName = typeName;
-                    model.OperateName = attr;
+                    model.OperateName = operate;
+                    model.BelongOperate = pName;
                     model.Guid = Guid.NewGuid().ToString("N");
                     model.CreateUser = 1;
                     model.CreateTime = DateTime.Now;
