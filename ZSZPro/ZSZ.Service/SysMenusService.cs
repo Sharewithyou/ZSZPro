@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -73,7 +74,7 @@ namespace ZSZ.Service
             try
             {
                 List<ZtreeNode> nodeList = new List<ZtreeNode>();
-                List<T_SysMenus> sysMenus = SysMenusDal.GetModel(x => x.Id >= 0).ToList();               
+                List<T_SysMenus> sysMenus = SysMenusDal.GetModel(x => x.Id >= 0).ToList();
                 for (int i = 0; i < sysMenus.Count; i++)
                 {
                     ZtreeNode node = new ZtreeNode();
@@ -113,7 +114,7 @@ namespace ZSZ.Service
                         list.ForEach(x => x.ParentName = parent.MenuName);
                     }
                     else
-                    {                       
+                    {
                         SysMenu menu = Mapper.Map<SysMenu>(node);
                         list.Add(menu);
                         list.ForEach(x => x.ParentName = "");
@@ -125,11 +126,63 @@ namespace ZSZ.Service
             catch (Exception ex)
             {
                 result.IsSuccess = false;
-                result.Message = ex.Message;            
+                result.Message = ex.Message;
             }
 
             return result;
-            
+
+        }
+
+        /// <summary>
+        /// 是否缺乏菜单添加必要信息
+        /// </summary>
+        /// <param name="menu"></param>
+        /// <returns></returns>
+        public MsgResult IsLackRuquiredMenuInfo(SysMenu menu)
+        {
+            MsgResult result = new MsgResult();
+            if (string.IsNullOrEmpty(menu.MenuName))
+            {
+                result.IsSuccess = false;
+                result.Message = "菜单名称不允许为空！";
+                return result;
+            }
+            if (string.IsNullOrEmpty(menu.MenuUrl))
+            {
+                result.IsSuccess = false;
+                result.Message = "菜单地址不允许为空！";
+                return result;
+            }
+            result.IsSuccess = true;
+            return result;
+
+        }
+
+        /// <summary>
+        /// 菜单名称或者名称是否重复
+        /// </summary>
+        /// <param name="menuName"></param>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        public MsgResult IsRepeatedMenuNameOrUrl(string menuName, string url)
+        {
+            MsgResult result = new MsgResult();
+            var model = SysMenusDal.GetModel(x => x.MenuName.ToUpper() == menuName.ToUpper()).FirstOrDefault();
+            if (model != null)
+            {
+                result.IsSuccess = false;
+                result.Message = "当前菜单名称已经存在";
+                return result;
+            }
+            model = SysMenusDal.GetModel(x => x.MenuUrl.ToUpper() == url.ToUpper()).FirstOrDefault();
+            if (model != null)
+            {
+                result.IsSuccess = false;
+                result.Message = "当前菜单url地址已经存在";
+                return result;
+            }
+            result.IsSuccess = true;
+            return result;
         }
     }
 }

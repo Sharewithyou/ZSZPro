@@ -1,0 +1,1277 @@
+
+========================================================================================================
+ 时间：2018-04-13 00:00:10,102 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.055 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Phone] = @p__linq__0
+-->Params:p__linq__0 String = 17512039375
+
+
+ 时间：2018-04-13 00:00:10,417 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.056 秒
+-->ScalarExecuted.Command:  select distinct * from T_SysMenus where Id in ( select MenuId from T_MenuPermissions where PermissionId in( select Id from T_SysPermissions where Type = 2 and Id in (select PermissionId from T_RolePermissions where RoleId in (select RoleId from T_UserRoles where UserId=@UserId))))
+-->Params:@UserId Int32 = 21
+
+
+ 时间：2018-04-13 00:00:15,652 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.043 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:00:15,766 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.041 秒
+-->ScalarExecuted.Command:SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[UserId] AS [UserId], 
+    [Extent1].[RoleId] AS [RoleId]
+    FROM [dbo].[T_UserRoles] AS [Extent1]
+    WHERE [Extent1].[UserId] = @EntityKeyValue1
+-->Params:EntityKeyValue1 Int32 = 21
+
+
+ 时间：2018-04-13 00:00:15,853 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.051 秒
+-->ScalarExecuted.Command:select * from T_SysOperations where Id in( select OperationId from T_OperatePermissions where PermissionId in (select Id from T_SysPermissions where Type = 1 and Id in(select PermissionId from T_RolePermissions where RoleId = @roleID)))
+-->Params:@roleID Int32 = 20
+
+
+ 时间：2018-04-13 00:00:16,163 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.055 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:00:16,298 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.056 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:00:16,364 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.041 秒
+-->ScalarExecuted.Command:SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE [Extent1].[Id] >= 0
+-->Params:
+
+ 时间：2018-04-13 00:00:17,428 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.036 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:00:17,473 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.04 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 117
+
+
+ 时间：2018-04-13 00:00:18,406 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.053 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:01:51,052 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.043 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:02:14,052 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.095 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE ((UPPER([Extent1].[MenuName])) = (UPPER(@p__linq__0))) OR ((UPPER([Extent1].[MenuName]) IS NULL) AND (UPPER(@p__linq__0) IS NULL))
+-->Params:p__linq__0 String = 测试
+
+
+ 时间：2018-04-13 00:02:14,137 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.084 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE ((UPPER([Extent1].[MenuUrl])) = (UPPER(@p__linq__0))) OR ((UPPER([Extent1].[MenuUrl]) IS NULL) AND (UPPER(@p__linq__0) IS NULL))
+-->Params:p__linq__0 String = /home/test
+
+
+**************************footer**************************
+
+========================================================================================================
+ 时间：2018-04-13 00:09:05,529 
+ 级别：INFO 
+ 来源：Log4NetConfig  
+ 信息：初始化应用程序日志
+
+ 时间：2018-04-13 00:09:07,304 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.072 秒
+-->ScalarExecuted.Command:  select distinct * from T_SysMenus where Id in ( select MenuId from T_MenuPermissions where PermissionId in( select Id from T_SysPermissions where Type = 2 and Id in (select PermissionId from T_RolePermissions where RoleId in (select RoleId from T_UserRoles where UserId=@UserId))))
+-->Params:@UserId Int32 = 21
+
+
+ 时间：2018-04-13 00:09:18,698 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.05 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:09:18,828 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.035 秒
+-->ScalarExecuted.Command:SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[UserId] AS [UserId], 
+    [Extent1].[RoleId] AS [RoleId]
+    FROM [dbo].[T_UserRoles] AS [Extent1]
+    WHERE [Extent1].[UserId] = @EntityKeyValue1
+-->Params:EntityKeyValue1 Int32 = 21
+
+
+ 时间：2018-04-13 00:09:18,918 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.05 秒
+-->ScalarExecuted.Command:select * from T_SysOperations where Id in( select OperationId from T_OperatePermissions where PermissionId in (select Id from T_SysPermissions where Type = 1 and Id in(select PermissionId from T_RolePermissions where RoleId = @roleID)))
+-->Params:@roleID Int32 = 20
+
+
+ 时间：2018-04-13 00:09:22,434 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.038 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:09:22,560 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.034 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:09:22,626 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.041 秒
+-->ScalarExecuted.Command:SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE [Extent1].[Id] >= 0
+-->Params:
+
+ 时间：2018-04-13 00:09:25,666 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.047 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:09:25,750 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.049 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 117
+
+
+ 时间：2018-04-13 00:09:26,475 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.049 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:09:47,599 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.042 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:09:58,180 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.047 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE ((UPPER([Extent1].[MenuName])) = (UPPER(@p__linq__0))) OR ((UPPER([Extent1].[MenuName]) IS NULL) AND (UPPER(@p__linq__0) IS NULL))
+-->Params:p__linq__0 String = 测试节点
+
+
+ 时间：2018-04-13 00:10:03,454 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.054 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE ((UPPER([Extent1].[MenuUrl])) = (UPPER(@p__linq__0))) OR ((UPPER([Extent1].[MenuUrl]) IS NULL) AND (UPPER(@p__linq__0) IS NULL))
+-->Params:p__linq__0 String = /home/test
+
+
+**************************footer**************************
+
+========================================================================================================
+ 时间：2018-04-13 00:11:01,440 
+ 级别：INFO 
+ 来源：Log4NetConfig  
+ 信息：初始化应用程序日志
+
+ 时间：2018-04-13 00:11:41,098 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.047 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:11:41,247 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.043 秒
+-->ScalarExecuted.Command:SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[UserId] AS [UserId], 
+    [Extent1].[RoleId] AS [RoleId]
+    FROM [dbo].[T_UserRoles] AS [Extent1]
+    WHERE [Extent1].[UserId] = @EntityKeyValue1
+-->Params:EntityKeyValue1 Int32 = 21
+
+
+ 时间：2018-04-13 00:11:41,336 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.042 秒
+-->ScalarExecuted.Command:select * from T_SysOperations where Id in( select OperationId from T_OperatePermissions where PermissionId in (select Id from T_SysPermissions where Type = 1 and Id in(select PermissionId from T_RolePermissions where RoleId = @roleID)))
+-->Params:@roleID Int32 = 20
+
+
+**************************footer**************************
+
+========================================================================================================
+ 时间：2018-04-13 00:12:11,752 
+ 级别：INFO 
+ 来源：Log4NetConfig  
+ 信息：初始化应用程序日志
+
+ 时间：2018-04-13 00:12:14,476 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.121 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:12:14,628 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.043 秒
+-->ScalarExecuted.Command:SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[UserId] AS [UserId], 
+    [Extent1].[RoleId] AS [RoleId]
+    FROM [dbo].[T_UserRoles] AS [Extent1]
+    WHERE [Extent1].[UserId] = @EntityKeyValue1
+-->Params:EntityKeyValue1 Int32 = 21
+
+
+ 时间：2018-04-13 00:12:14,717 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.044 秒
+-->ScalarExecuted.Command:select * from T_SysOperations where Id in( select OperationId from T_OperatePermissions where PermissionId in (select Id from T_SysPermissions where Type = 1 and Id in(select PermissionId from T_RolePermissions where RoleId = @roleID)))
+-->Params:@roleID Int32 = 20
+
+
+ 时间：2018-04-13 00:12:21,397 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.052 秒
+-->ScalarExecuted.Command:  select distinct * from T_SysMenus where Id in ( select MenuId from T_MenuPermissions where PermissionId in( select Id from T_SysPermissions where Type = 2 and Id in (select PermissionId from T_RolePermissions where RoleId in (select RoleId from T_UserRoles where UserId=@UserId))))
+-->Params:@UserId Int32 = 21
+
+
+ 时间：2018-04-13 00:12:23,751 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.046 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:12:24,249 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.034 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:12:24,375 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.046 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:12:24,461 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.062 秒
+-->ScalarExecuted.Command:SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE [Extent1].[Id] >= 0
+-->Params:
+
+ 时间：2018-04-13 00:12:25,929 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.08 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:12:25,971 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.034 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 117
+
+
+ 时间：2018-04-13 00:12:26,726 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.046 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:13:24,212 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.058 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:13:40,521 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.095 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE ((UPPER([Extent1].[MenuName])) = (UPPER(@p__linq__0))) OR ((UPPER([Extent1].[MenuName]) IS NULL) AND (UPPER(@p__linq__0) IS NULL))
+-->Params:p__linq__0 String = 测试
+
+
+ 时间：2018-04-13 00:13:40,610 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.088 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE ((UPPER([Extent1].[MenuUrl])) = (UPPER(@p__linq__0))) OR ((UPPER([Extent1].[MenuUrl]) IS NULL) AND (UPPER(@p__linq__0) IS NULL))
+-->Params:p__linq__0 String = /Home/test
+
+
+ 时间：2018-04-13 00:13:46,704 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.039 秒
+-->ScalarExecuted.Command:INSERT [dbo].[T_SysMenus]([Guid], [MenuName], [MenuUrl], [IconFont], [IsLeaf], [ParentId], [SortNum], [IsDeleted], [CreateUser], [CreateTime])
+VALUES (@0, @1, @2, @3, @4, @5, @6, @7, @8, @9)
+SELECT [Id]
+FROM [dbo].[T_SysMenus]
+WHERE @@ROWCOUNT > 0 AND [Id] = scope_identity()
+-->Params:@0 String = 5821b379744f49d99b33a4203bc01494
+@1 String = 测试
+@2 String = /Home/test
+@3 String = xe625
+@4 Boolean = False
+@5 Int32 = 0
+@6 Int32 = 0
+@7 Boolean = False
+@8 Int32 = 21
+@9 DateTime2 = 2018/4/13 0:13:45
+
+
+ 时间：2018-04-13 00:15:08,272 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.055 秒
+-->ScalarExecuted.Command:  select distinct * from T_SysMenus where Id in ( select MenuId from T_MenuPermissions where PermissionId in( select Id from T_SysPermissions where Type = 2 and Id in (select PermissionId from T_RolePermissions where RoleId in (select RoleId from T_UserRoles where UserId=@UserId))))
+-->Params:@UserId Int32 = 21
+
+
+ 时间：2018-04-13 00:15:10,691 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.091 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:15:11,199 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.091 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:15:11,433 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.091 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:15:11,520 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.086 秒
+-->ScalarExecuted.Command:SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE [Extent1].[Id] >= 0
+-->Params:
+
+ 时间：2018-04-13 00:15:14,229 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.086 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:15:14,315 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.085 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 117
+
+
+ 时间：2018-04-13 00:15:15,527 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.094 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:16:16,550 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.081 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:16:20,468 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.088 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE ((UPPER([Extent1].[MenuName])) = (UPPER(@p__linq__0))) OR ((UPPER([Extent1].[MenuName]) IS NULL) AND (UPPER(@p__linq__0) IS NULL))
+-->Params:p__linq__0 String = 测试
+
+
+**************************footer**************************
+
+========================================================================================================
+ 时间：2018-04-13 00:20:36,280 
+ 级别：INFO 
+ 来源：Log4NetConfig  
+ 信息：初始化应用程序日志
+
+ 时间：2018-04-13 00:20:37,980 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.072 秒
+-->ScalarExecuted.Command:  select distinct * from T_SysMenus where Id in ( select MenuId from T_MenuPermissions where PermissionId in( select Id from T_SysPermissions where Type = 2 and Id in (select PermissionId from T_RolePermissions where RoleId in (select RoleId from T_UserRoles where UserId=@UserId))))
+-->Params:@UserId Int32 = 21
+
+
+ 时间：2018-04-13 00:20:50,437 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.081 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:20:50,626 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.088 秒
+-->ScalarExecuted.Command:SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[UserId] AS [UserId], 
+    [Extent1].[RoleId] AS [RoleId]
+    FROM [dbo].[T_UserRoles] AS [Extent1]
+    WHERE [Extent1].[UserId] = @EntityKeyValue1
+-->Params:EntityKeyValue1 Int32 = 21
+
+
+ 时间：2018-04-13 00:20:50,753 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.087 秒
+-->ScalarExecuted.Command:select * from T_SysOperations where Id in( select OperationId from T_OperatePermissions where PermissionId in (select Id from T_SysPermissions where Type = 1 and Id in(select PermissionId from T_RolePermissions where RoleId = @roleID)))
+-->Params:@roleID Int32 = 20
+
+
+ 时间：2018-04-13 00:20:54,167 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.046 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:20:54,290 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.035 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:20:54,355 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.037 秒
+-->ScalarExecuted.Command:SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE [Extent1].[Id] >= 0
+-->Params:
+
+ 时间：2018-04-13 00:20:56,026 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.048 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:20:56,109 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.047 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 117
+
+
+ 时间：2018-04-13 00:20:56,786 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.051 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:21:36,480 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.044 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[Phone] AS [Phone], 
+    [Extent1].[Salt] AS [Salt], 
+    [Extent1].[PwdHush] AS [PwdHush], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_AdminUsers] AS [Extent1]
+    WHERE [Extent1].[Id] = @p__linq__0
+-->Params:p__linq__0 Int32 = 21
+
+
+ 时间：2018-04-13 00:21:38,969 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.048 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE ((UPPER([Extent1].[MenuName])) = (UPPER(@p__linq__0))) OR ((UPPER([Extent1].[MenuName]) IS NULL) AND (UPPER(@p__linq__0) IS NULL))
+-->Params:p__linq__0 String = 再次测试
+
+
+ 时间：2018-04-13 00:21:39,024 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.054 秒
+-->ScalarExecuted.Command:SELECT TOP (1) 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Guid] AS [Guid], 
+    [Extent1].[MenuName] AS [MenuName], 
+    [Extent1].[MenuUrl] AS [MenuUrl], 
+    [Extent1].[IconFont] AS [IconFont], 
+    [Extent1].[IsLeaf] AS [IsLeaf], 
+    [Extent1].[ParentId] AS [ParentId], 
+    [Extent1].[SortNum] AS [SortNum], 
+    [Extent1].[IsDeleted] AS [IsDeleted], 
+    [Extent1].[CreateUser] AS [CreateUser], 
+    [Extent1].[CreateTime] AS [CreateTime]
+    FROM [dbo].[T_SysMenus] AS [Extent1]
+    WHERE ((UPPER([Extent1].[MenuUrl])) = (UPPER(@p__linq__0))) OR ((UPPER([Extent1].[MenuUrl]) IS NULL) AND (UPPER(@p__linq__0) IS NULL))
+-->Params:p__linq__0 String = /home/testa
+
+
+ 时间：2018-04-13 00:21:39,289 
+ 级别：INFO 
+ 来源：ZSZ.DAL.DbSession.NewInterceptor  
+ 信息：
+执行时间:0.049 秒
+-->ScalarExecuted.Command:INSERT [dbo].[T_SysMenus]([Guid], [MenuName], [MenuUrl], [IconFont], [IsLeaf], [ParentId], [SortNum], [IsDeleted], [CreateUser], [CreateTime])
+VALUES (@0, @1, @2, @3, @4, @5, @6, @7, @8, @9)
+SELECT [Id]
+FROM [dbo].[T_SysMenus]
+WHERE @@ROWCOUNT > 0 AND [Id] = scope_identity()
+-->Params:@0 String = 439cfd7f83c54401ad5bcad6b3c5c8ca
+@1 String = 再次测试
+@2 String = /home/testa
+@3 String = xe61d
+@4 Boolean = False
+@5 Int32 = 0
+@6 Int32 = 40
+@7 Boolean = False
+@8 Int32 = 21
+@9 DateTime2 = 2018/4/13 0:21:39
+

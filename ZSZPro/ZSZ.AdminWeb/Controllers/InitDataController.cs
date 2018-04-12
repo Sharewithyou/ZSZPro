@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using ZSZ.AdminWeb.App_Start.CustomAttribute;
+using ZSZ.Common;
 using ZSZ.IService;
 using ZSZ.Model.Models;
 using ZSZ.Model.Models.Custom;
@@ -23,6 +24,18 @@ namespace ZSZ.AdminWeb.Controllers
         [PermissionDes(Name = "初始化管理员数据", IsNotShow = true)]
         public ActionResult Index()
         {
+            //清空Session,cookie,cahce
+            SessionHelper.ClearSession();
+
+            if (Request.Cookies["ASP.NET_SessionId"] != null)
+            {
+                HttpCookie cookie = new HttpCookie("ASP.NET_SessionId");
+                cookie.Expires =DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(cookie);
+            }  
+            
+            CacheHelper.RemoveAllCache();        
+
             #region 初始化菜单
             MsgResult tempResult = new MsgResult();
 

@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ZSZ.Model.Models.Custom;
 using ZSZ.Model.Models;
+using ZSZ.Model.Models.DTO;
 
 
 namespace ZSZ.IService
@@ -36,5 +37,22 @@ namespace ZSZ.IService
         /// </summary>
         /// <returns></returns>
         MsgResult GetZtreeNodeDetailById(int id);
+
+        /// <summary>
+        /// 菜单名或者地址是否重复
+        /// </summary>
+        /// <param name="menuName"></param>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        MsgResult IsRepeatedMenuNameOrUrl(string menuName, string url);
+
+        /// <summary>
+        /// 是否缺乏必须的添加信息
+        /// </summary>
+        /// <param name="menu"></param>
+        /// <returns></returns>
+        MsgResult IsLackRuquiredMenuInfo(SysMenu menu);
+
+
     }
 }

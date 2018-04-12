@@ -37,9 +37,8 @@
                 </div>
                 <div class="panel-body" style="min-height:600px;">
                     <div>
-                        @*<button type="button" class="btn btn-warning" id="btnAddMenu">增加子节点</button>*@
                         <button type="button" class="btn btn-primary" id="btnAddSiblins">增加同级节点</button>
-                        <button type="button" class="btn btn-danger" id="btnAddChild">增加子级节点</button>
+                        @*<button type="button" class="btn btn-danger" id="btnAddChild">增加子级节点</button>*@
                     </div>
                     <table class="table">
                         <thead>
@@ -86,7 +85,7 @@
             initTree();
 
             //增加子节点
-            $("#btnAddChild").click(function () {
+            $("#btnAddSiblins").click(function () {
                 //1,根节点的Pid默认为NULL
                 var treeObj = $.fn.zTree.getZTreeObj("menuTree");
                 var nodes = treeObj.getSelectedNodes();
@@ -94,7 +93,7 @@
                     layer.alert("请先选中节点！");
                     return;
                 } else {
-                    layer_show("增加菜单节点", "/SysMenuManage/AddMenuPage?id=" + nodes[0].id, 900, 450);
+                    layer_show("增加同级菜单节点", "/SysMenuManage/AddMenuPage?id=" + nodes[0].pId, 900, 450);
                 }
             });
 
@@ -154,7 +153,7 @@
                 }
             })
 
-        
+
 
 
         }

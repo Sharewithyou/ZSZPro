@@ -148,9 +148,14 @@ namespace ZSZ.Service
             return result;
         }
 
+        /// <summary>
+        /// 返回查询数据
+        /// </summary>
+        /// <param name="whereLambda"></param>
+        /// <returns></returns>
         public IQueryable<T> GetModel(Expression<Func<T, bool>> whereLambda)
         {
-            throw new NotImplementedException();
+            return BaseDal.GetModel(whereLambda);
         }
 
         public IQueryable<T> GetModelsByPage<type>(int pageSize, int pageIndex, bool isAsc, Expression<Func<T, type>> orderByLambda, Expression<Func<T, bool>> whereLambda, out int totalCount)

@@ -54,7 +54,8 @@ namespace ZSZ.AdminWeb.App_Start.Filters
                             }
                             else
                             {
-                                filterContext.Result = new RedirectResult("/Home/Index");
+                                //filterContext.Result = new RedirectResult("/Home/Index");
+                                filterContext.Result = new ContentResult() {Content = "用户没有权限"};
                             }
 
                         }

@@ -405,6 +405,7 @@
     <Compile Include="App_Start\CustomAttribute\NoAuthorizeAttribute.cs" />
     <Compile Include="App_Start\CustomAttribute\PermissionDesAttribute.cs" />
     <Compile Include="App_Start\Filters\FilterConfig.cs" />
+    <Compile Include="App_Start\Filters\JsonResultActionFilter.cs" />
     <Compile Include="App_Start\Filters\ZszAuthorizeFilter.cs" />
     <Compile Include="App_Start\Filters\ZszExceptionFilter.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -422,6 +423,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BtnRoleHelper.cs" />
+    <Compile Include="Models\JsonNetResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -475,6 +477,7 @@
     <Content Include="Views\SysMenuManage\AddMenuPage.cshtml" />
     <Content Include="Views\SysMenuManage\UpdateMenuPage.cshtml" />
     <Content Include="Views\SysMenuManage\AddChildMenuPage.cshtml" />
+    <Content Include="Views\Shared\_LayoutModelPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
