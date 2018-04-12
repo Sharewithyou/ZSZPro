@@ -1,5 +1,22 @@
 ﻿
 $(function () {
+
+    $("#addChildMenuform").Validform({
+        btnSubmit: ".btnAddNode",
+        tiptype: function (msg, o, cssctl) {
+            if (!o.obj.is("form")) {
+                var objtip = o.obj.parent().next(".Validform_checktip");
+                cssctl(objtip, o.type);
+                objtip.text(msg);
+            }
+        },
+        label: ".form-label",
+        ajaxPost: true,
+        callback: function (data) {
+
+        }
+
+    })
     //$("#addMenuform").Validform();
     $("#addMenuform").Validform({
         btnSubmit: ".btnAddNode",

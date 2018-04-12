@@ -85,7 +85,7 @@
 
             initTree();
 
-            //增加节点
+            //增加子节点
             $("#btnAddChild").click(function () {
                 //1,根节点的Pid默认为NULL
                 var treeObj = $.fn.zTree.getZTreeObj("menuTree");
@@ -94,7 +94,7 @@
                     layer.alert("请先选中节点！");
                     return;
                 } else {
-                    layer_show("增加菜单节点", "/SysMenuManage/AddMenuPage?Id=" + nodes[0].id, 900, 450);
+                    layer_show("增加菜单节点", "/SysMenuManage/AddMenuPage?id=" + nodes[0].id, 900, 450);
                 }
             });
 

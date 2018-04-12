@@ -408,6 +408,7 @@
     <Compile Include="App_Start\Filters\ZszAuthorizeFilter.cs" />
     <Compile Include="App_Start\Filters\ZszExceptionFilter.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Comm\BaseController.cs" />
     <Compile Include="Config\AutofacDir\AutofacConfig.cs" />
     <Compile Include="Config\AutofacDir\LoggingModule.cs" />
     <Compile Include="Config\AutoMapDir\SourceProfile.cs" />
@@ -473,6 +474,7 @@
     <Content Include="Views\SysMenuManage\Index.cshtml" />
     <Content Include="Views\SysMenuManage\AddMenuPage.cshtml" />
     <Content Include="Views\SysMenuManage\UpdateMenuPage.cshtml" />
+    <Content Include="Views\SysMenuManage\AddChildMenuPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -482,6 +484,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZSZ.Common\ZSZ.Common.csproj">

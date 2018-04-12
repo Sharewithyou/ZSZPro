@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "增加菜单节点";
+    Layout = "~/Views/Shared/_LayoutHomePage.cshtml";
+}
+
+<div>
+    <form action="" method="post" class="form form-horizontal responsive" id="addChildMenuform">
+        <div class="row cl">
+            <label class="form-label col-xs-3">所属父节点：</label>
+            <div class="formControls col-xs-6">
+                <input type="text" class="input-text" readonly value="">
+                <input type="hidden" value="" name="ParentId" />
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3">节点名称：</label>
+            <div class="formControls col-xs-6">
+                <input type="text" class="input-text" placeholder="增加节点名称" name="MenuName" datatype="*">
+            </div>
+            <span class="Validform_checktip" style="margin-left:1px;"></span>
+        </div>      
+        <div class="row cl">
+            <label class="form-label col-xs-3">节点Url：</label>
+            <div class="formControls col-xs-6">
+                <input type="text" class="input-text" autocomplete="off" placeholder="格式：/控制器/方法" name="MenuUrl" datatype="/\/[a-zA-Z]+\/[a-zA-Z]+$/">
+            </div>
+            <span class="Validform_checktip" style="margin-left:1px;"></span>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3">排序字段：</label>
+            <div class="formControls col-xs-6">
+                <input type="text" class="input-text" autocomplete="off" placeholder="排序字段(原菜单间隔20)" name="SortNum" datatype="n">
+            </div>
+            <span class="Validform_checktip" style="margin-left:1px;"></span>
+        </div>
+
+        <div class="row cl">
+            <div class="col-xs-8 col-xs-offset-3">
+                <input class="btn btn-primary btnAddNode" type="button" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
+</div>
+
+@section FooterScript{
+    <script src="~/Content/js/MenuManage/AddMenu.js"></script>
+}
