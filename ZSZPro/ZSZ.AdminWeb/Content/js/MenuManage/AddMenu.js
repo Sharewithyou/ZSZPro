@@ -13,10 +13,21 @@ $(function () {
         label: ".form-label",
         ajaxPost: true,
         callback: function (data) {
-
+            if (data.IsSuccess) {
+                layer.closeAll();
+                parent.window.location.reload();
+            } else {
+                layer.alert(data.Message);
+            }
         }
 
     })
+    //layer.closeAll(); //疯狂模式，关闭所有层
+    //layer.closeAll('dialog'); //关闭信息框
+    //layer.closeAll('page'); //关闭所有页面层
+    //layer.closeAll('iframe'); //关闭所有的iframe层
+    //layer.closeAll('loading'); //关闭加载层
+    //layer.closeAll('tips'); //关闭所有的tips层    
     //$("#addMenuform").Validform();
     //$("#addMenuform").Validform({
     //    btnSubmit: ".btnAddNode",

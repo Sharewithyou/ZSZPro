@@ -42,20 +42,13 @@
   <ItemGroup>
     <Compile Include="IAdminUsersService.cs" />
     <Compile Include="IBaseService.cs" />
-    <Compile Include="IGroupRolesService.cs" />
     <Compile Include="ILoginService.cs" />
-    <Compile Include="IMenuPermissionsService.cs" />
     <Compile Include="IInitDataService.cs" />
-    <Compile Include="IOperatePermissionsService.cs" />
-    <Compile Include="IRolePermissionsService.cs" />
-    <Compile Include="ISysGroupUsersService.cs" />
     <Compile Include="ISysLogService.cs" />
     <Compile Include="ISysMenusService.cs" />
     <Compile Include="ISysOperationsService.cs" />
     <Compile Include="ISysPermissionsService.cs" />
     <Compile Include="ISysRolesService.cs" />
-    <Compile Include="IUserGroupsService.cs" />
-    <Compile Include="IUserRolesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T4\IServiceTemplate.cs">
       <DependentUpon>IServiceTemplate.tt</DependentUpon>

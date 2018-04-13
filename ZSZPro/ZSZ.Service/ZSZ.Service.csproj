@@ -63,14 +63,9 @@
   <ItemGroup>
     <Compile Include="AdminUsersService.cs" />
     <Compile Include="BaseService.cs" />
-    <Compile Include="GroupRolesService.cs" />
     <Compile Include="InitDataService.cs" />
     <Compile Include="LoginService.cs" />
-    <Compile Include="MenuPermissionsService.cs" />
-    <Compile Include="OperatePermissionsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RolePermissionsService.cs" />
-    <Compile Include="SysGroupUsersService.cs" />
     <Compile Include="SysLogService.cs" />
     <Compile Include="SysMenusService.cs" />
     <Compile Include="SysOperationsService.cs" />
@@ -81,8 +76,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="UserGroupsService.cs" />
-    <Compile Include="UserRolesService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZSZ.Common\ZSZ.Common.csproj">
@@ -127,9 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

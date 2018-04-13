@@ -76,7 +76,7 @@
             <td>${MenuName}</td>
             <td>${MenuUrl}</td>
             <td>${SortNum}</td>
-            <td><a onclick="showUpdatePage('${Id}')">修改</a><a onclick="markDeleteNode('${Id}')">删除</a></td>
+            <td><a onclick="showUpdatePage('${Guid}')">修改</a><a onclick="markDeleteNode('${Guid}')">删除</a></td>
         </tr>
     </script>
     <script>
@@ -163,28 +163,29 @@
             layer_show("修改菜单节点", "/SysMenu/UpdateMenuPage?id=" + id, 900, 450);
         }
 
+        function markDeleteNode(guid) {
+            layer.confim('确认删除节点？', { btn: ['确认', '取消'] },)
+        }
+
         //删除节点
-        function markDeleteNode(id) {
+        function markDeleteNode(guid) {
             layer.confirm('确认删除节点？', {
                 btn: ['确认', '取消'] //按钮
             }, function () {
 
-                AjaxUtil.request({
-                    url: "/SysMenu/MarkDeleteNode",
-                    type: 'post',
-                    data: { Id: id },
-                    success: function (rep) {
-                        layer.closeAll();
-                        window.location.reload();
-                    },
-                    fail: function (rep) {
-                        alert(rep.Message);
+                $.post("/SysMenuManage/DeleteMenuNode", { guid: guid }, function (result) {
+                    if (result.IsSuccess) {
+                        layer.alert("删除数据成功！", function () {
+                            window.location.reload();
+                        })
+                    } else {
+                        layer.alert(result.Message, function () {
+                            layer.closeAll();
+                        })
                     }
-                });
-            }, function () {
+                })
+            }
 
-            });
-        }
 
 
     </script>

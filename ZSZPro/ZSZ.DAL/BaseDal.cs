@@ -7,10 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using EntityFramework.Utilities;
 using ZSZ.IDAL;
+using ZSZ.Model.Models.Base;
 
 namespace ZSZ.DAL
 {
-    public class BaseDal<T> : IBaseDal<T> where T : class
+    public class BaseDal<T> : IBaseDal<T> where T : BaseEntity
     {
         private DbContext DbContext = DbContextFactory.Create();
 
@@ -58,7 +59,8 @@ namespace ZSZ.DAL
             //        DbContext.Entry<T>(entity).Property(p.Name).CurrentValue = "";
             //    }
             //}
-            DbContext.Set<T>().Attach(entity);
+          
+            DbContext.Set<T>().Attach(entity);           
             DbContext.Entry<T>(entity).Property("IsDeleted").IsModified = true;
 
             //解决必填字段更新的问题
@@ -127,7 +129,7 @@ namespace ZSZ.DAL
         /// <returns></returns>
         public IQueryable<T> GetModel(Expression<Func<T, bool>> whereLambda)
         {
-            return DbContext.Set<T>().Where(whereLambda);
+            return DbContext.Set<T>().Where(x=>x.IsDeleted==false).Where(whereLambda);
         }
 
         /// <summary>

@@ -12,6 +12,7 @@ using AutoMapper;
 using ZSZ.AdminWeb.Comm;
 using ZSZ.AdminWeb.Models;
 using ZSZ.Model.Models.Custom.Result;
+using ZSZ.Model.Models.Custom;
 
 namespace ZSZ.AdminWeb.Controllers
 {
@@ -69,37 +70,23 @@ namespace ZSZ.AdminWeb.Controllers
 
         [PermissionDes(Name = "增加菜单")]
         public ActionResult AddMenuNode(SysMenu sysMenu)
-        {
-            ValidFormResult res = new ValidFormResult();
+        {          
             var result = SysMenusService.IsLackRuquiredMenuInfo(sysMenu);
             if (!result.IsSuccess)
-            {
-                res.Status = "n";
-                res.Info = result.Message;
-                return Json(res);
+            {              
+                return Json(result);
             }
             result = SysMenusService.IsRepeatedMenuNameOrUrl(sysMenu.MenuName, sysMenu.MenuUrl);
             if (!result.IsSuccess)
-            {
-                res.Status = "n";
-                res.Info = result.Message;
-                return Json(res);
+            {               
+                return Json(result);
             }
             T_SysMenus menu = Mapper.Map<T_SysMenus>(sysMenu);
             menu.Guid = Guid.NewGuid().ToString("N");
             menu.IsDeleted = false;
             menu.CreateUser = UserId;
             menu.CreateTime = DateTime.Now;
-            result = SysMenusService.Add(menu);
-            if (result.IsSuccess)
-            {
-                res.Status = "y";
-            }
-            else
-            {
-                res.Status = "n";
-            }
-            res.Info = result.Message;
+            result = SysMenusService.Add(menu);           
             return Json(result);
         }
 
@@ -113,7 +100,20 @@ namespace ZSZ.AdminWeb.Controllers
         [PermissionDes(Name = "删除菜单")]
         public ActionResult DeleteMenuNode(string guid)
         {
-            return null;
+            MsgResult result = new MsgResult();
+            if (string.IsNullOrEmpty(guid))
+            {
+                result.IsSuccess = false;
+                result.Message = "传输数据有误，请重试！";
+            }
+            var model = SysMenusService.GetModel(x => x.Guid == guid).FirstOrDefault();
+            if (model != null)
+            {
+                result.IsSuccess = false;
+                result.Message = "传输数据有误，请重试！";
+            }
+            result = SysMenusService.MarkDelete(model);
+            return Json(result);
         }
     }
 }

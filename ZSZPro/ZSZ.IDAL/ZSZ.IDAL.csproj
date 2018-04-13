@@ -42,18 +42,11 @@
   <ItemGroup>
     <Compile Include="IAdminUsersDal.cs" />
     <Compile Include="IBaseDal.cs" />
-    <Compile Include="IGroupRolesDal.cs" />
-    <Compile Include="IMenuPermissionsDal.cs" />
-    <Compile Include="IOperatePermissionsDal.cs" />
-    <Compile Include="IRolePermissionsDal.cs" />
-    <Compile Include="ISysGroupUsersDal.cs" />
     <Compile Include="ISysLogDal.cs" />
     <Compile Include="ISysMenusDal.cs" />
     <Compile Include="ISysOperationsDal.cs" />
     <Compile Include="ISysPermissionsDal.cs" />
     <Compile Include="ISysRolesDal.cs" />
-    <Compile Include="IUserGroupsDal.cs" />
-    <Compile Include="IUserRolesDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T4\IDalTemplate.cs">
       <AutoGen>True</AutoGen>

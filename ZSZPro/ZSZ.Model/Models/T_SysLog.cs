@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
+using ZSZ.Model.Models.Base;
 
 namespace ZSZ.Model.Models
 {
-    public partial class T_SysLog
-    {
-        public int Id { get; set; }
+    public partial class T_SysLog: BaseEntity
+    {      
         public System.DateTime Date { get; set; }
         public string Level { get; set; }
         public string Logger { get; set; }
