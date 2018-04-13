@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Base\BaseEntity.cs" />
     <Compile Include="Models\Custom\Enum\ErrorCodeEnum.cs" />
     <Compile Include="Models\Custom\log\LogContent.cs" />
     <Compile Include="Models\Custom\Result\MsgResult.cs" />

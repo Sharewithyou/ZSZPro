@@ -4,11 +4,12 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using ZSZ.Model.Models.Base;
 using ZSZ.Model.Models.Custom;
 
 namespace ZSZ.IService
 {
-    public interface IBaseService<T> where T : class
+    public interface IBaseService<T> where T : BaseEntity
     {
         /// <summary>
         /// 增加实体

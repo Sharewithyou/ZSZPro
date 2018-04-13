@@ -9,11 +9,12 @@ using Newtonsoft.Json;
 using ZSZ.Common;
 using ZSZ.IDAL;
 using ZSZ.IService;
+using ZSZ.Model.Models.Base;
 using ZSZ.Model.Models.Custom;
 
 namespace ZSZ.Service
 {
-    public class BaseService<T> : IBaseService<T> where T : class
+    public class BaseService<T> : IBaseService<T> where T : BaseEntity
     {
         public IBaseDal<T> BaseDal { get; set; }
         public MsgResult Add(T entity)
@@ -163,9 +164,46 @@ namespace ZSZ.Service
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// 软删除
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         public MsgResult MarkDelete(T entity)
         {
-            throw new NotImplementedException();
+            MsgResult result = new MsgResult();
+            try
+            {
+                BaseDal.MarkDelete(entity);
+                bool flag = BaseDal.SaveChanges();
+                if (flag)
+                {
+                    result.IsSuccess = true;
+                    result.Message = "删除成功";
+                }
+                else
+                {
+                    result.IsSuccess = false;
+                    result.Message = "删除失败";
+                }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (var ve in ex.EntityValidationErrors.SelectMany(eve => eve.ValidationErrors))
+                {
+                    sb.AppendLine(ve.PropertyName + ":" + ve.ErrorMessage);
+                }
+                result.IsSuccess = false;
+                result.Message = "删除失败：" + sb.ToString();
+            }
+            catch (Exception ex)
+            {
+                result.IsSuccess = false;
+                result.Message = ex.Message;
+            }
+
+            return result;
         }
 
         public MsgResult Update(T entity)
