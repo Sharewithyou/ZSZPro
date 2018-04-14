@@ -60,7 +60,8 @@ namespace ZSZ.DAL
             //    }
             //}
           
-            DbContext.Set<T>().Attach(entity);           
+            DbContext.Set<T>().Attach(entity);
+            DbContext.Entry<T>(entity).Property("IsDeleted").CurrentValue = true;
             DbContext.Entry<T>(entity).Property("IsDeleted").IsModified = true;
 
             //解决必填字段更新的问题

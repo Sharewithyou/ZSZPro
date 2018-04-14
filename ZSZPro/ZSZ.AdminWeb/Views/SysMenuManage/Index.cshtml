@@ -164,28 +164,26 @@
         }
 
         function markDeleteNode(guid) {
-            layer.confim('确认删除节点？', { btn: ['确认', '取消'] },)
+            layer.confirm('确认删除节点？',
+                { btn: ['确认', '取消'] },
+                function() {
+                    $.post("/SysMenuManage/DeleteMenuNode",{ guid: guid },function(result) {
+                        if (result.IsSuccess) {
+                            layer.alert("删除数据成功！",
+                                function() {
+                                    window.location.reload();
+                                });
+                        } else {
+                            layer.alert(result.Message,
+                                function() {
+                                    layer.closeAll();
+                                });
+                        }
+                    });
+                });
         }
 
-        //删除节点
-        function markDeleteNode(guid) {
-            layer.confirm('确认删除节点？', {
-                btn: ['确认', '取消'] //按钮
-            }, function () {
-
-                $.post("/SysMenuManage/DeleteMenuNode", { guid: guid }, function (result) {
-                    if (result.IsSuccess) {
-                        layer.alert("删除数据成功！", function () {
-                            window.location.reload();
-                        })
-                    } else {
-                        layer.alert(result.Message, function () {
-                            layer.closeAll();
-                        })
-                    }
-                })
-            }
-
+       
 
 
     </script>
